@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CerShaw — 個人網站</title>
+<title>你的名字 — 個人網站</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -295,16 +295,16 @@
   .cert-past { background: #f1efe8; }
   .cert-past .cert-group-title { color: #2c2c2a; }
   .cert-count-past { background: #d3d1c7; color: #444441; }
-  .cert-sub-section { padding: 1.2rem 1.2rem 0; border: 1px solid var(--border); border-top: none; border-bottom: none; background: white; }
-  .cert-sub-section:last-child { border-bottom: 1px solid var(--border); border-radius: 0 0 var(--radius) var(--radius); padding-bottom: 1.2rem; }
+  .cert-sub-section { padding: 1rem 1.2rem; border: 1px solid var(--border); border-top: none; border-bottom: none; background: white; }
+  .cert-sub-section:last-child { border-bottom: 1px solid var(--border); border-radius: 0 0 var(--radius) var(--radius); }
   .cert-sub-label {
     font-size: 0.72rem; font-weight: 500; letter-spacing: 0.1em;
     text-transform: uppercase; color: var(--text-muted);
-    margin-bottom: 0.8rem; margin-top: 0.2rem;
+    margin-bottom: 0.6rem; margin-top: 0;
   }
   .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 0.8rem; margin-bottom: 0; padding: 1.2rem; border: 1px solid var(--border); border-top: none; background: white; border-radius: 0 0 var(--radius) var(--radius); }
   .cert-group-header + .certs-grid { border-radius: 0 0 var(--radius) var(--radius); }
-  .cert-sub-section .certs-grid { border: none; padding: 0; margin-bottom: 1rem; background: transparent; border-radius: 0; }
+  .cert-sub-section .certs-grid { border: none; padding: 0; margin-bottom: 0; background: transparent; border-radius: 0; }
   .cert-card {
     background: var(--bg); border-radius: var(--radius-sm);
     padding: 0.9rem 1rem;
@@ -345,7 +345,7 @@
 <body>
 
 <nav>
-  <a href="#" class="nav-logo">CerShaw</a>
+  <a href="#" class="nav-logo">你的名字</a>
   <ul class="nav-links">
     <li><a href="#about">關於我</a></li>
     <li><a href="#notes">筆記</a></li>
@@ -360,7 +360,7 @@
   <div class="hero">
     <div class="hero-text">
       <div class="hero-badge">👋 歡迎來到我的個人網站</div>
-      <h1>Hello，我是<br><span>CerShaw</span></h1>
+      <h1>你好，我是<br><span>你的名字</span></h1>
       <p class="hero-desc">
         這裡記錄我的學習旅程、技術筆記與個人經歷。<br>
         持續探索，持續成長。
@@ -468,59 +468,63 @@
         <div class="certs-grid">
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">🔐</div>
-            <div class="cert-info"><h3>CISSP</h3></div>
+            <div class="cert-info"><h3>CISSP</h3><div class="cert-org">ISC²</div></div>
           </div>
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">☁️</div>
-            <div class="cert-info"><h3>CCSP</h3></div>
+            <div class="cert-info"><h3>CCSP</h3><div class="cert-org">ISC²</div></div>
           </div>
         </div>
       </div>
+
       <div class="cert-sub-section">
         <div class="cert-sub-label">ISACA</div>
         <div class="certs-grid">
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">🔍</div>
-            <div class="cert-info"><h3>CISA</h3></div>
+            <div class="cert-info"><h3>CISA</h3><div class="cert-org">ISACA</div></div>
           </div>
         </div>
       </div>
+
       <div class="cert-sub-section">
         <div class="cert-sub-label">PMI</div>
         <div class="certs-grid">
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">📋</div>
-            <div class="cert-info"><h3>PMP</h3></div>
+            <div class="cert-info"><h3>PMP</h3><div class="cert-org">PMI</div></div>
           </div>
         </div>
       </div>
+
       <div class="cert-sub-section">
         <div class="cert-sub-label">EC-Council</div>
         <div class="certs-grid">
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">🔐</div>
-            <div class="cert-info"><h3>CEH</h3></div>
+            <div class="cert-info"><h3>CEH V9</h3><div class="cert-org">EC-Council</div></div>
           </div>
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">🔐</div>
-            <div class="cert-info"><h3>ECSA</h3></div>
+            <div class="cert-info"><h3>ECSA</h3><div class="cert-org">EC-Council</div></div>
           </div>
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">🔐</div>
-            <div class="cert-info"><h3>ECIH</h3></div>
+            <div class="cert-info"><h3>ECIH</h3><div class="cert-org">EC-Council</div></div>
           </div>
         </div>
       </div>
+
       <div class="cert-sub-section">
-        <div class="cert-sub-label">數發部</div>
+        <div class="cert-sub-label">政府認證</div>
         <div class="certs-grid">
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">📜</div>
-            <div class="cert-info"><h3>資通安全概論</h3></div>
+            <div class="cert-info"><h3>資通安全概論</h3><div class="cert-org">行政院資安培訓</div></div>
           </div>
           <div class="cert-card">
             <div class="cert-badge cert-badge-blue">📜</div>
-            <div class="cert-info"><h3>網路架構與部署安全</h3></div>
+            <div class="cert-info"><h3>網路架構與部署安全</h3><div class="cert-org">行政院資安培訓</div></div>
           </div>
         </div>
       </div>
@@ -531,24 +535,32 @@
       <div class="cert-group-header cert-training">
         <span class="cert-group-icon">📚</span>
         <span class="cert-group-title">專業訓練與稽核資格</span>
-        <span class="cert-group-count cert-count-training">1 項</span>
+        <span class="cert-group-count cert-count-training">3 項</span>
       </div>
       <div class="certs-grid">
         <div class="cert-card">
           <div class="cert-badge cert-badge-mint">📑</div>
-          <div class="cert-info"><h3>ISO 27001:2022</h3></div>
+          <div class="cert-info"><h3>ISO 27001:2013 稽核資格</h3><div class="cert-org">ISO</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge cert-badge-mint">📑</div>
+          <div class="cert-info"><h3>ISO 27001:2022 稽核資格</h3><div class="cert-org">ISO</div></div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-badge cert-badge-mint">🔎</div>
+          <div class="cert-info"><h3>ISO 27002:2022</h3><div class="cert-org">ISO</div></div>
         </div>
       </div>
-    </div> 
-    
-  <!-- 曾取得之專業認證 -->
+    </div>
+
+    <!-- 曾取得之專業認證 -->
     <div class="cert-group">
       <div class="cert-group-header cert-past">
         <span class="cert-group-icon">🏛️</span>
         <span class="cert-group-title">曾取得之專業認證</span>
         <span class="cert-group-count cert-count-past">13 項</span>
       </div>
- 
+
       <div class="cert-sub-section">
         <div class="cert-sub-label">系統類</div>
         <div class="certs-grid">
@@ -566,7 +578,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="cert-sub-section">
         <div class="cert-sub-label">網路類</div>
         <div class="certs-grid">
@@ -588,7 +600,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="cert-sub-section">
         <div class="cert-sub-label">雲端虛擬類</div>
         <div class="certs-grid">
@@ -610,7 +622,7 @@
           </div>
         </div>
       </div>
- 
+
       <div class="cert-sub-section">
         <div class="cert-sub-label">資安類</div>
         <div class="certs-grid">
@@ -625,7 +637,7 @@
         </div>
       </div>
     </div>
- 
+
   </div>
 </section>
 
@@ -636,27 +648,47 @@
     <h2 class="section-title">個人履歷</h2>
     <div class="resume-timeline">
       <div class="timeline-item">
-        <div class="timeline-year">2020~Now</div>
+        <div class="timeline-year">現在</div>
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>台大醫院</h3>
+          <h3>職位名稱 / 學生</h3>
+          <div class="org">公司或學校名稱</div>
+          <p>描述你目前做的事情、負責的項目、或學習的方向。</p>
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">2015~2020</div>
+        <div class="timeline-year">20XX</div>
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>威強電</h3>
+          <h3>上一個職位或學歷</h3>
+          <div class="org">公司或學校名稱</div>
+          <p>描述過去的經歷、成就或學到的技能。</p>
         </div>
       </div>
       <div class="timeline-item">
-        <div class="timeline-year">2009~2015</div>
+        <div class="timeline-year">20XX</div>
         <div class="timeline-dot"></div>
         <div class="timeline-content">
-          <h3>精誠資訊</h3>
+          <h3>更早的經歷</h3>
+          <div class="org">公司或學校名稱</div>
+          <p>可以繼續往前列出重要的學習或工作經歷。</p>
         </div>
       </div>
     </div>
+
+    <div style="margin-top:2rem;">
+      <h3 style="font-size:1rem;font-weight:500;margin-bottom:1.2rem;color:var(--text-muted);">技能 & 工具</h3>
+      <div class="skills-grid">
+        <span class="skill-pill">技能 1</span>
+        <span class="skill-pill">技能 2</span>
+        <span class="skill-pill">技能 3</span>
+        <span class="skill-pill">工具 A</span>
+        <span class="skill-pill">工具 B</span>
+        <span class="skill-pill">在這裡加上你的技能</span>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- CONTACT -->
 <section id="contact">
