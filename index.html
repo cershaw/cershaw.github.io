@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>你的名字 — 個人網站</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --mint: #d4f5e9;
+    --mint-dark: #3ecf8e;
+    --sky: #dbeeff;
+    --sky-dark: #3b82f6;
+    --peach: #fff0e6;
+    --peach-dark: #f97316;
+    --lemon: #fffbe6;
+    --lemon-dark: #eab308;
+    --text: #1a1a2e;
+    --text-muted: #6b7280;
+    --bg: #f8fafc;
+    --white: #ffffff;
+    --border: rgba(0,0,0,0.07);
+    --shadow: 0 4px 24px rgba(0,0,0,0.07);
+    --radius: 16px;
+    --radius-sm: 10px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(248,250,252,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 60px;
+  }
+  .nav-logo {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600; font-size: 1.1rem;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    text-decoration: none; color: var(--text-muted);
+    font-size: 0.9rem; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 90vh;
+    display: flex; align-items: center;
+    padding: 4rem 2rem;
+    max-width: 1000px; margin: 0 auto;
+    gap: 4rem;
+  }
+  .hero-text { flex: 1; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--mint);
+    color: #0d6e4a;
+    padding: 6px 16px; border-radius: 99px;
+    font-size: 0.8rem; font-weight: 500;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.05em;
+  }
+  .hero h1 {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 600;
+    line-height: 1.15;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+  .hero h1 span {
+    background: linear-gradient(120deg, #3ecf8e, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .hero-desc {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+    line-height: 1.8;
+  }
+  .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    padding: 12px 28px; border-radius: 99px;
+    font-size: 0.95rem; font-weight: 500;
+    text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-block;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.12); }
+  .btn-primary { background: var(--text); color: white; }
+  .btn-secondary { background: white; color: var(--text); border: 1.5px solid var(--border); }
+
+  .hero-visual {
+    width: 280px; flex-shrink: 0;
+    display: flex; flex-direction: column; gap: 1rem;
+  }
+  .stat-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.2rem 1.5rem;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
+    display: flex; align-items: center; gap: 1rem;
+  }
+  .stat-icon {
+    width: 44px; height: 44px; border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.3rem;
+  }
+  .stat-card:nth-child(1) .stat-icon { background: var(--mint); }
+  .stat-card:nth-child(2) .stat-icon { background: var(--sky); }
+  .stat-card:nth-child(3) .stat-icon { background: var(--peach); }
+  .stat-label { font-size: 0.78rem; color: var(--text-muted); }
+  .stat-val { font-family: 'Sora', sans-serif; font-size: 1.2rem; font-weight: 600; }
+
+  /* SECTIONS */
+  section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+  .section-tag {
+    display: inline-block;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-muted); margin-bottom: 1rem;
+  }
+  .section-title {
+    font-family: 'Sora', sans-serif;
+    font-size: clamp(1.6rem, 3vw, 2.2rem);
+    font-weight: 600; margin-bottom: 2.5rem;
+  }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+  .about-card {
+    background: white; border-radius: var(--radius);
+    padding: 1.5rem; border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .about-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .about-card.wide { grid-column: span 2; }
+  .about-card .icon {
+    width: 40px; height: 40px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; margin-bottom: 1rem;
+  }
+  .about-card:nth-child(1) .icon { background: var(--mint); }
+  .about-card:nth-child(2) .icon { background: var(--sky); }
+  .about-card:nth-child(3) .icon { background: var(--lemon); }
+  .about-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .about-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; }
+
+  /* NOTES */
+  .notes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.2rem; }
+  .note-card {
+    background: white; border-radius: var(--radius);
+    padding: 1.5rem; border: 1px solid var(--border);
+    text-decoration: none; color: inherit;
+    display: block; transition: transform 0.2s, box-shadow 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .note-card::before {
+    content: ''; position: absolute;
+    top: 0; left: 0; right: 0; height: 4px;
+  }
+  .note-card:nth-child(1)::before { background: linear-gradient(90deg, #3ecf8e, #3b82f6); }
+  .note-card:nth-child(2)::before { background: linear-gradient(90deg, #3b82f6, #8b5cf6); }
+  .note-card:nth-child(3)::before { background: linear-gradient(90deg, #f97316, #eab308); }
+  .note-card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+  .note-tag {
+    font-size: 0.75rem; font-weight: 500;
+    padding: 3px 10px; border-radius: 99px;
+    display: inline-block; margin-bottom: 0.8rem;
+  }
+  .note-tag.green { background: var(--mint); color: #0d6e4a; }
+  .note-tag.blue { background: var(--sky); color: #1e40af; }
+  .note-tag.orange { background: var(--peach); color: #c2410c; }
+  .note-card h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.5rem; }
+  .note-card p { font-size: 0.85rem; color: var(--text-muted); }
+  .note-date { font-size: 0.78rem; color: var(--text-muted); margin-top: 1rem; }
+
+  /* RESUME */
+  .resume-timeline { display: flex; flex-direction: column; gap: 0; }
+  .timeline-item {
+    display: flex; gap: 2rem;
+    padding-bottom: 2.5rem;
+    position: relative;
+  }
+  .timeline-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 79px; top: 44px;
+    width: 1.5px; bottom: 0;
+    background: var(--border);
+  }
+  .timeline-year {
+    width: 80px; flex-shrink: 0;
+    font-family: 'Sora', sans-serif;
+    font-size: 0.85rem; font-weight: 500;
+    color: var(--text-muted);
+    padding-top: 0.8rem;
+    text-align: right;
+  }
+  .timeline-dot {
+    width: 12px; height: 12px; border-radius: 50%;
+    background: var(--mint-dark);
+    flex-shrink: 0; margin-top: 1rem;
+    position: relative; z-index: 1;
+    border: 2px solid white;
+    box-shadow: 0 0 0 2px var(--mint-dark);
+  }
+  .timeline-content {
+    background: white; border-radius: var(--radius);
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--border);
+    flex: 1;
+  }
+  .timeline-content h3 { font-size: 1rem; font-weight: 500; margin-bottom: 0.2rem; }
+  .timeline-content .org { font-size: 0.85rem; color: var(--mint-dark); font-weight: 500; margin-bottom: 0.5rem; }
+  .timeline-content p { font-size: 0.88rem; color: var(--text-muted); }
+
+  /* SKILLS */
+  .skills-grid { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+  .skill-pill {
+    padding: 8px 18px; border-radius: 99px;
+    font-size: 0.88rem; font-weight: 400;
+    border: 1.5px solid var(--border);
+    background: white;
+    transition: all 0.2s;
+  }
+  .skill-pill:hover { background: var(--mint); border-color: var(--mint-dark); color: #0d6e4a; }
+
+  /* CONTACT */
+  .contact-box {
+    background: white; border-radius: 24px;
+    padding: 3rem; text-align: center;
+    border: 1px solid var(--border);
+  }
+  .contact-box h2 {
+    font-family: 'Sora', sans-serif;
+    font-size: 1.8rem; font-weight: 600; margin-bottom: 0.8rem;
+  }
+  .contact-box p { color: var(--text-muted); margin-bottom: 2rem; }
+  .contact-links { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+  .contact-link {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 10px 22px; border-radius: 99px;
+    text-decoration: none; font-size: 0.9rem;
+    background: var(--bg); border: 1.5px solid var(--border);
+    color: var(--text); transition: all 0.2s;
+  }
+  .contact-link:hover { background: var(--text); color: white; transform: translateY(-2px); }
+  .contact-link svg { width: 16px; height: 16px; }
+
+  /* FOOTER */
+  footer {
+    text-align: center; padding: 2.5rem;
+    font-size: 0.85rem; color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  /* SCROLL REVEAL */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  @media (max-width: 700px) {
+    .hero { flex-direction: column; gap: 2.5rem; min-height: auto; padding-top: 3rem; }
+    .hero-visual { width: 100%; }
+    .about-grid { grid-template-columns: 1fr; }
+    .about-card.wide { grid-column: span 1; }
+    nav { padding: 0 1rem; }
+    .nav-links { gap: 1rem; }
+    section { padding: 3rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">你的名字</a>
+  <ul class="nav-links">
+    <li><a href="#about">關於我</a></li>
+    <li><a href="#notes">筆記</a></li>
+    <li><a href="#resume">履歷</a></li>
+    <li><a href="#contact">聯絡</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="max-width:1000px;margin:0 auto;">
+  <div class="hero">
+    <div class="hero-text">
+      <div class="hero-badge">👋 歡迎來到我的個人網站</div>
+      <h1>你好，我是<br><span>你的名字</span></h1>
+      <p class="hero-desc">
+        這裡記錄我的學習旅程、技術筆記與個人經歷。<br>
+        持續探索，持續成長。
+      </p>
+      <div class="hero-cta">
+        <a href="#notes" class="btn btn-primary">瀏覽筆記</a>
+        <a href="#resume" class="btn btn-secondary">查看履歷</a>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="stat-card">
+        <div class="stat-icon">📝</div>
+        <div>
+          <div class="stat-label">筆記文章</div>
+          <div class="stat-val">持續更新中</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">🌱</div>
+        <div>
+          <div class="stat-label">學習狀態</div>
+          <div class="stat-val">積極探索</div>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon">📍</div>
+        <div>
+          <div class="stat-label">所在地</div>
+          <div class="stat-val">台灣</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="reveal">
+    <span class="section-tag">About</span>
+    <h2 class="section-title">關於我</h2>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon">🎯</div>
+        <h3>目前目標</h3>
+        <p>在這裡寫下你目前的學習方向或職涯目標。例如：學習前端開發、準備轉職、探索資料科學等。</p>
+      </div>
+      <div class="about-card">
+        <div class="icon">💡</div>
+        <h3>興趣與專長</h3>
+        <p>分享你感興趣的領域或擅長的事情。例如：技術寫作、問題解決、閱讀、健身等。</p>
+      </div>
+      <div class="about-card wide">
+        <div class="icon">📖</div>
+        <h3>我的故事</h3>
+        <p>這裡可以寫一段簡短的自我介紹，讓來訪的人更了解你是誰。你可以分享你的背景、經歷、或是為什麼建立這個網站。這段文字由你來填寫，讓它充滿你自己的個性。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section id="notes">
+  <div class="reveal">
+    <span class="section-tag">Notes</span>
+    <h2 class="section-title">學習筆記</h2>
+    <div class="notes-grid">
+      <a href="#" class="note-card">
+        <span class="note-tag green">學習紀錄</span>
+        <h3>第一篇筆記的標題</h3>
+        <p>用一兩句話描述這篇筆記的內容重點，讓讀者快速了解。</p>
+        <div class="note-date">2024 年 1 月</div>
+      </a>
+      <a href="#" class="note-card">
+        <span class="note-tag blue">技術筆記</span>
+        <h3>第二篇筆記的標題</h3>
+        <p>這裡可以連結到你的 HackMD 文章，點擊後直接跳轉。</p>
+        <div class="note-date">2024 年 2 月</div>
+      </a>
+      <a href="#" class="note-card">
+        <span class="note-tag orange">心得分享</span>
+        <h3>第三篇筆記的標題</h3>
+        <p>未來新增文章時，複製這個卡片的 HTML 就能快速擴充。</p>
+        <div class="note-date">2024 年 3 月</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="reveal">
+    <span class="section-tag">Experience</span>
+    <h2 class="section-title">個人履歷</h2>
+    <div class="resume-timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">現在</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>職位名稱 / 學生</h3>
+          <div class="org">公司或學校名稱</div>
+          <p>描述你目前做的事情、負責的項目、或學習的方向。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">20XX</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>上一個職位或學歷</h3>
+          <div class="org">公司或學校名稱</div>
+          <p>描述過去的經歷、成就或學到的技能。</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">20XX</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <h3>更早的經歷</h3>
+          <div class="org">公司或學校名稱</div>
+          <p>可以繼續往前列出重要的學習或工作經歷。</p>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem;">
+      <h3 style="font-size:1rem;font-weight:500;margin-bottom:1.2rem;color:var(--text-muted);">技能 & 工具</h3>
+      <div class="skills-grid">
+        <span class="skill-pill">技能 1</span>
+        <span class="skill-pill">技能 2</span>
+        <span class="skill-pill">技能 3</span>
+        <span class="skill-pill">工具 A</span>
+        <span class="skill-pill">工具 B</span>
+        <span class="skill-pill">在這裡加上你的技能</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="reveal">
+    <div class="contact-box">
+      <h2>聯絡我</h2>
+      <p>有任何問題或合作邀請，歡迎透過以下方式找到我。</p>
+      <div class="contact-links">
+        <a href="mailto:your@email.com" class="contact-link">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
+          Email
+        </a>
+        <a href="https://github.com/yourusername" class="contact-link" target="_blank">
+          <svg fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 4.42 2.87 8.17 6.84 9.49.5.09.66-.22.66-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.89 1.52 2.34 1.08 2.91.83.09-.65.35-1.08.63-1.33-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02A9.56 9.56 0 0 1 12 6.8c.85 0 1.71.11 2.51.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.69-4.57 4.94.36.31.68.92.68 1.85v2.74c0 .27.16.58.67.48A10.01 10.01 0 0 0 22 12c0-5.52-4.48-10-10-10z"/></svg>
+          GitHub
+        </a>
+        <a href="https://hackmd.io/@yourusername" class="contact-link" target="_blank">
+          <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          HackMD 筆記
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2024 你的名字 · 以 ❤️ 建立 · 托管於 GitHub Pages</p>
+</footer>
+
+<script>
+const observer = new IntersectionObserver(
+  (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+  { threshold: 0.1 }
+);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
